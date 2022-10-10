@@ -1,6 +1,7 @@
 # Dice Picker
 
 This is an improvment on the [Dice Roller]() challenge.
+
 "What do we eat tonight ?", she asked. 
 This question filled him with dread and terror as he realized : he had no idea. Merely choices. And as none would perfectly fit their current  taste and craving for food, he'd have to bear the burden of choosing wrong. 
 If only he could feed their choices to the Dice of Fate and be done with it.
