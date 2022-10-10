@@ -1,0 +1,22 @@
+{
+    "url": "",
+    "coverURL": "",
+    "size": "S",
+    "mainTechs": ["JS"],
+    "techs": [
+        {
+            "name": "HTML",
+            "packages": []
+        },
+        {
+            "name": "Javascript",
+            "packages": []
+        },
+        {
+            "name": "CSS",
+            "packages": []
+        }
+    ],
+    "designPatterns": [],
+    "components": []
+}
