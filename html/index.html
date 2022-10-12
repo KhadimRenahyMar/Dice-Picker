@@ -9,23 +9,37 @@
 </head>
 
 <body>
-    <div id="app">
-        <h1 class="title">Dice Roller</h1>
-        <div class="throw-inputBx">
-            <input class="throw-input" type="number">
-            <input class="throw-button" type="submit" value="Valider">
+    <header class="header">
+        <h1 class="header__title">Dice Picker</h1>
+    </header>
+    <main id="app">
+        <div class="inputBx">
+            <div class="inputBx__input">
+                <label for="option" class="inputBx__label">Choix 1 :</label>
+                <input name="1" type="text" class="inputBx__option">
+            </div>
+            <div class="inputBx__input">
+                <label for="option" class="inputBx__label">Choix 2 :</label>
+                <input name="2" type="text" class="inputBx__option">
+            </div>
+        </div>
+        <div class="buttonBx">
+            <button type="submit" class="inputBx__btn inputBx__btn--plus">
+                <svg class="inputBx__icon--plus" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+            </button>
+
+            <input class="inputBx__btn inputBx__btn--add" type="submit" value="Ajouter">
         </div>
         <div class="board" id="player"></div>
-        <div class="linkBx">
-            <p class="linkBx__legend">Want to randomly pick between multiple options ?</p>
-            <a href="" class="linkBx__link">Dice Picker</a>
-        </div>
         <footer class="footer">
             <p class="footer__credit">Coded by
                 <a class="footer__link" href="https://github.com/KhadimRenahyMar">Khadim Renahy-Mar</a>
             </p>
         </footer>
-    </div>
+    </main>
     <script src="../js/app.js"></script>
 </body>
 
