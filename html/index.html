@@ -10,9 +10,36 @@
 
 <body>
     <header class="header">
-        <h1 class="header__title">Dice Picker</h1>
+        <div class="header__titleBx">
+            <h1 class="header__title">Dice Picker</h1>
+        </div>
     </header>
     <main id="app">
+        <div class="instructionBx">
+            <em class="instructionBx__accroche">
+                "On mange quoi ce soir ?"
+                <br>
+                "On fais quoi ce week-end ?"
+                <br>
+                "Tu préfères x ou y ?"
+            </em>
+            <strong class="instructionBx__text--answer instructionBx__text--bold">~ J'en sais rien ~</strong> 
+            <p class="instructionBx__text">Et on va pas passer 3h à faire un choix qu'on
+                regrettera 10 minutes après donc :
+            </p>
+            <ul class="instructionBx__list">
+                <li class="instructionBx__list-item">J'entre mes choix dans les champs prévus à cet effet</li>
+                <em class="instructionBx__message">Attention : minimum 2 choix / maximum 6 choix !</em>
+                <li class="instructionBx__list-item">Pour ajouter un choix, je clique sur le bouton "+"</li>
+                <li class="instructionBx__list-item">Je clique sur le bouton "Ajouter" pour valider mes choix</li>
+                <em class="instructionBx__message">Attention : les champs vides lors de la validation ne seront pas pris en compte !</em>
+                <br>
+                <li class="instructionBx__list-item">je clique sur le bouton "Lancer" et je laisse Jésus prendre le volant</li>
+            </ul>
+            <strong class="instructionBx__text--answer">
+                #JesusTakeTheWheel
+            </strong>
+        </div>
         <div class="inputBx">
             <div class="inputBx__input">
                 <label for="option" class="inputBx__label">Choix 1 :</label>
@@ -34,12 +61,12 @@
             <input class="inputBx__btn inputBx__btn--add" type="submit" value="Ajouter">
         </div>
         <div class="board" id="player"></div>
-        <footer class="footer">
-            <p class="footer__credit">Coded by
-                <a class="footer__link" href="https://github.com/KhadimRenahyMar">Khadim Renahy-Mar</a>
-            </p>
-        </footer>
     </main>
+    <footer class="footer">
+        <p class="footer__credit">Coded by
+            <a class="footer__link" href="https://github.com/KhadimRenahyMar">Khadim Renahy-Mar</a>
+        </p>
+    </footer>
     <script src="../js/app.js"></script>
 </body>
 

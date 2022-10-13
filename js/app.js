@@ -2,53 +2,68 @@ const app = {
     board: document.getElementsByClassName('board')[0],
     player: document.getElementById('player'),
     inputBx: document.querySelector('.inputBx'),
+    inputCount: 2,
+    prevWinner: null,
     options: [],
+    throwed: false,
     init: () => {
         app.eventListeners();
     },
 
     eventListeners() {
         let addBtn = document.querySelector('.inputBx__btn--add');
-        addBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            app.resetBx();
-            app.options = [];
-            let inputs = document.querySelectorAll('.inputBx__option');
-            inputs = [...inputs].filter(input => input.value.length > 0);
-            // console.log(inputs)
-            if(inputs.length > 1){
-                let throwBx = document.querySelector('.throw-inputBx');
-                // console.log(throwBx);
-                if(throwBx === null){
-                    app.displayThrowBtn();
-                    let formButton = document.querySelector('.throw-button');
-                    if (formButton !== null) {
-                        formButton.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            app.resetDice();
-                            app.pick();
-                        });
+
+        if (addBtn !== null) {
+            addBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                app.resetBx();
+                app.options = [];
+                let inputs = document.querySelectorAll('.inputBx__option');
+                inputs = [...inputs].filter(input => input.value.length > 0);
+                if (inputs.length > 1) {
+                    let throwBx = document.querySelector('.throw-inputBx');
+                    if (throwBx === null) {
+                        app.displayThrowBtn();
+                        let formButton = document.querySelector('.throw-button');
+                        if (formButton !== null) {
+                            formButton.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                if (app.throwed === true) {
+                                    let message = confirm(`Le hasard a déjà répondu, êtes-vous certain de vouloir relancer les dés ?`);
+                                    if (message === true) {
+                                        app.resetDice();
+                                        app.pick();
+                                    }
+                                }
+                                else {
+                                    app.resetDice();
+                                    app.pick();
+                                }
+                            });
+                        }
                     }
+                    app.getOptions(inputs);
                 }
-                app.getOptions(inputs);
-            }
-            console.log(app.board);
-        })
+            })
+        }
 
 
         let addOptionBtn = document.querySelector('.inputBx__btn--plus');
-        addOptionBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('click')
-            app.addOption();
-        });
+        if (addOptionBtn !== null) {
+            addOptionBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                app.inputCount += 1;
+                if (app.inputCount <= 6) {
+                    app.addOption();
+                }
+            });
+        }
     },
 
-    addOption(){
+    addOption() {
         let inputBx = document.querySelector('.inputBx');
         let optionLength = document.querySelectorAll('.inputBx__option').length;
         let count = optionLength + 1;
-        console.log(optionLength, count)
         let inputDiv = document.createElement('div');
         inputDiv.classList.add('inputBx__input');
 
@@ -61,7 +76,7 @@ const app = {
         input.classList.add('inputBx__option');
         input.type = 'text';
         input.name = `${count}`;
-        
+
         inputDiv.appendChild(label);
         inputDiv.appendChild(input);
         inputBx.lastChild.after(inputDiv);
@@ -71,7 +86,7 @@ const app = {
         for (let target of targets) {
             let option = {
                 id: target.name,
-                value: target.value,
+                value: target.value.charAt(0).toUpperCase() + target.value.substring(1),
                 dice: null,
             }
             app.options.push(option);
@@ -85,7 +100,7 @@ const app = {
             div.classList.add('optionBx');
             div.setAttribute('id', `option_${option.id}`);
             let title = document.createElement("p");
-            title.textContent = option.value;
+            title.textContent = `${option.value} ?`;
             title.classList.add('optionBx__title');
             div.appendChild(title);
             app.board.appendChild(div);
@@ -103,7 +118,7 @@ const app = {
         document.querySelector('.buttonBx').after(div);
     },
 
-    pick(){
+    pick() {
         for (let option of app.options) {
             let randomInt = app.getRandomInt(1, 7);
             let isUnique = false;
@@ -114,16 +129,19 @@ const app = {
             option.dice = randomInt;
             app.makeDice(option.id, option.dice);
         }
-        console.log(app.options);
         let winner = app.options.reduce((prev, current) => prev.dice > current.dice ? prev : current);
         app.win(winner)
     },
 
     makeDice(count, randomInt) {
         let div = document.createElement('div');
-        div.setAttribute('id', count);
-        div.classList.add('dice');
-        app.switchDice(div, randomInt);
+        div.classList.add('diceBx');
+        let dice = document.createElement('span');
+        dice.setAttribute('id', count);
+        dice.classList.add('dice');
+        app.switchDice(dice, randomInt);
+        dice.setAttribute('alt', `dice : ${randomInt}`)
+        div.append(dice)
         let parentDiv = document.getElementById(`option_${count}`);
         parentDiv.append(div);
         return randomInt;
@@ -136,41 +154,51 @@ const app = {
     getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     },
-    
+
     switchDice(div, int) {
         let newPos = app.getNewPosition(int);
         div.style.backgroundPositionX = `${newPos}px`;
     },
 
-    win(winner){
-        console.log("FTW", winner);
-        let div = document.getElementById(`option_${winner.id}`);
-        let title = div.childNodes[0];
+    win(winner) {
+        let parentDiv = document.getElementById(`option_${winner.id}`);
+        let title = parentDiv.childNodes[0];
+        title.textContent = `${winner.value} !`;
+
         let message = document.createElement('h3');
         message.setAttribute('id', "message");
-        message.textContent = `Le hasard a parlé ! C'est l'option ${winner.id} qui l'emporte !`;
-        title.after(message);
+        message.textContent = `Le hasard a parlé : c'est ${winner.value} qui l'emporte !`;
+        let throwBtn = document.querySelector('.throw-inputBx');
+        throwBtn.after(message);
+        app.prevWinner = winner;
+        app.throwed = true;
     },
 
-    resetBx(){
+    resetBx() {
         let childs = document.querySelectorAll('.optionBx');
         childs.forEach(child => {
             child.remove();
         });
-        app.options =[];
+        app.options = [];
         let message = document.querySelector('#message');
-        if(message){
+        if (message) {
             message.remove();
         }
     },
 
     resetDice() {
-        let dices = document.querySelectorAll('.dice');
+        if (app.prevWinner !== null) {
+            let parentDiv = document.getElementById(`option_${app.prevWinner.id}`);
+            let title = parentDiv.childNodes[0];
+            let newValue = app.prevWinner.value;
+            title.textContent = `${newValue} ?`;
+        }
+        let dices = document.querySelectorAll('.diceBx');
         dices.forEach(dice => {
             dice.remove();
         })
         let message = document.querySelector('#message');
-        if(message){
+        if (message) {
             message.remove();
         }
     },

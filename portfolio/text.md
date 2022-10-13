@@ -17,6 +17,9 @@
 
 
 ## A propos
+Ce projet est une amélioration de l'exercice [Dice Roller]().
+
+Alors que le Dice Roller laissait ses visiteurs entrer une nombre de dés avant de les "
 
 Ce rapport d'expérience détaille la conception de cet outil :  
 La section [Processus](#processus) introduit les considérations préalables au développement de ce projet web ainsi que les choix de conception. 
