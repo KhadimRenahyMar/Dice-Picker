@@ -1,6 +1,5 @@
 const app = {
     board: document.getElementsByClassName('board')[0],
-    player: document.getElementById('player'),
     inputBx: document.querySelector('.inputBx'),
     inputCount: 2,
     prevWinner: null,
