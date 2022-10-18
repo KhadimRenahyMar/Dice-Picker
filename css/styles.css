@@ -161,7 +161,7 @@ body {
   align-items: center;
 }
 
-.inputBx__btn:hover, .throw-button:hover{
+.inputBx__btn:hover, .throw-button:hover, .linkBx__link{
   background-color: #f39c12;
   color: #f5f5f5;
   fill: #f5f5f5;
