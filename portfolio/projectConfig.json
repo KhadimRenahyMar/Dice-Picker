@@ -1,5 +1,5 @@
 {
-    "url": "",
+    "url": "https://khadimrenahymar.github.io/Dice-Picker/",
     "coverURL": "",
     "size": "S",
     "mainTechs": ["JS"],
@@ -17,6 +17,6 @@
             "packages": []
         }
     ],
-    "designPatterns": [],
+    "designPatterns": ["sprite", "media queries"],
     "components": []
 }
