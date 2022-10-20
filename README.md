@@ -10,6 +10,7 @@ Dice Picker is the easy way out for undecisive moments : enter up to six choices
       - [Desktop](#desktop)
       - [Responsive](#responsive)
     - [Links](#links)
+    - [Built with](#built-with)
   - [Author](#author)
 
 ## Overview
@@ -20,19 +21,18 @@ Users should be able to:
 - Get notified which choice has the highest score
 - Get the same experience across devices
 
-### Screenshot
+### Screenshots
 #### Desktop
 ![desktop view](https://raw.githubusercontent.com/KhadimRenahyMar/Dice-Picker/main/portfolio/screenshots/0cover.webp)
 
-#### Responsive
-![mobile view]()
+#### Mobile
+![mobile view](https://raw.githubusercontent.com/KhadimRenahyMar/Dice-Picker/main/portfolio/screenshots/0landing%20-%20mobile.webp)
 
-![mobile view]()
+![mobile view](https://raw.githubusercontent.com/KhadimRenahyMar/Dice-Picker/main/portfolio/screenshots/0landing%20-%20mobile%202.webp)
 
 ### Links
 - Solution URL: [Link](https://khadimrenahymar.github.io/Dice-Picker/)
 
-## My process
 ### Built with
 
 - Semantic HTML5 markup (BEM)

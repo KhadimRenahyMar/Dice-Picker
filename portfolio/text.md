@@ -65,4 +65,4 @@ Dice Roller limitait également l'interaction utilisateur au choix d'un nombre, 
 
 En laissant à l'utilisateur le contrôle du sens de la donnée, Dice Picker semble s'affranchir des limites du concept du Dice Roller pour exploiter pleinement le sien, fondé sur l'intention de ces utilisateurs.
 
-Il apparait donc que le contexte d'utilisation d'une donnée modifie profondément la pertinence de son cadre d'interaction. Choisir un contexte ouvert permet aux utilisateurs de mieux s'approprier leur outil, ce qui libère le programme de la responsabilité de la pertinence.
+Il apparaît donc que le contexte d'utilisation d'une donnée modifie profondément la pertinence de son cadre d'interaction. Choisir un contexte ouvert permet aux utilisateurs de mieux s'approprier leur outil, ce qui libère le programme de la responsabilité de la pertinence.
