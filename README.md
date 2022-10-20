@@ -1,6 +1,6 @@
 # Dice Picker
-
-This is an improvment on the [Dice Roller]() challenge.
+This feature is an improvment on the Dice Roller challenge.
+Dice Picker is the easy way out for undecisive moments : enter up to six choices and let the dice randomly pick your fate.
 
 ## Table of contents
   - [Table of contents](#table-of-contents)
@@ -10,33 +10,29 @@ This is an improvment on the [Dice Roller]() challenge.
       - [Desktop](#desktop)
       - [Responsive](#responsive)
     - [Links](#links)
-  - [My process](#my-process)
-    - [Built with](#built-with)
   - [Author](#author)
 
 ## Overview
-
 ### The challenge
-
 Users should be able to:
-
+- Add at least 2 choices to the draw
+- Roll the dice
+- Get notified which choice has the highest score
+- Get the same experience across devices
 
 ### Screenshot
-
 #### Desktop
-
-![desktop view]()
+![desktop view](https://raw.githubusercontent.com/KhadimRenahyMar/Dice-Picker/main/portfolio/screenshots/0cover.webp)
 
 #### Responsive
+![mobile view]()
 
-![< 1200px view]()
+![mobile view]()
 
 ### Links
-
-- Solution URL: [Link]()
+- Solution URL: [Link](https://khadimrenahymar.github.io/Dice-Picker/)
 
 ## My process
-
 ### Built with
 
 - Semantic HTML5 markup (BEM)
@@ -44,6 +40,4 @@ Users should be able to:
 - Eric A. and Kathryn S. Meyer's "Reset CSS"
 
 ## Author
-
-- Github - [My repos](https://github.com/KhadimRenahyMar?tab=repositories)
-- Frontend Mentor - [@KhadimRenahyMar](https://www.frontendmentor.io/profile/KhadimRenahyMar)
+[Khadim Renahy-Mar](https://krem-portfolio.herokuapp.com/)

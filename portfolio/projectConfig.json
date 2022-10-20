@@ -18,5 +18,5 @@
         }
     ],
     "designPatterns": ["sprite", "media queries"],
-    "components": []
+    "components": ["inputs"]
 }
